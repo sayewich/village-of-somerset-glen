@@ -1,0 +1,99 @@
+:root {
+  color-scheme: dark;
+  font-family: "Courier New", Courier, monospace;
+
+  --color-page: #000020;
+  --color-text: #fff;
+  --color-title: #f6d97f;
+  --color-title-shadow-primary: #9caf7c;
+  --color-title-shadow-secondary: #78b2e6;
+  --color-message: #e0827e;
+  --color-worker-frame: #c0c0c0;
+  --content-width: 760px;
+  --worker-width: 320px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--color-text);
+  background-color: var(--color-page);
+  background-image:
+    radial-gradient(circle at 12% 18%, #fff 0 1px, transparent 2px),
+    radial-gradient(circle at 72% 32%, #00ffff 0 1px, transparent 2px),
+    radial-gradient(circle at 45% 78%, #ff40ff 0 1px, transparent 2px),
+    radial-gradient(circle at 88% 86%, #fff 0 1px, transparent 2px);
+  background-size: 97px 83px, 131px 109px, 149px 137px, 173px 151px;
+}
+
+.coming-soon-page {
+  width: min(92%, var(--content-width));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 3rem 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.coming-soon-page__title {
+  margin: 0;
+  color: var(--color-title);
+  font-size: clamp(2rem, 8vw, 4.75rem);
+  line-height: 1.08;
+  letter-spacing: 0.04em;
+  text-shadow:
+    3px 3px 0 var(--color-title-shadow-primary),
+    6px 6px 0 var(--color-title-shadow-secondary);
+}
+
+.rainbow-rule {
+  width: 100%;
+  height: 8px;
+  margin: 2rem 0 1.5rem;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    #e0827e 0 25%,
+    #f6d97f 25% 50%,
+    #9caf7c 50% 75%,
+    #78b2e6 75% 100%
+  );
+}
+
+.coming-soon-page__worker {
+  width: min(78vw, var(--worker-width));
+  height: auto;
+  display: block;
+  border: 4px ridge var(--color-worker-frame);
+  background: #000;
+  image-rendering: pixelated;
+}
+
+.coming-soon-page__message {
+  margin: 1.5rem 0 0;
+  color: var(--color-message);
+  font-size: clamp(1.6rem, 7vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-shadow: 2px 2px 0 var(--color-title);
+  animation: blink 0.8s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  50% {
+    visibility: hidden;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coming-soon-page__message {
+    animation: none;
+  }
+}
